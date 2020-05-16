@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', function(){
   'use strict';
   const btnOpenModal = document.querySelector('#btnOpenModal');
@@ -5,8 +6,6 @@ document.addEventListener('DOMContentLoaded', function(){
   const closeModal = document.querySelector('#closeModal');
   const questionTitle = document.querySelector('#question');
   const formAnswers = document.querySelector('#formAnswers');
-  const link = `./image/burger.png`;
-  const burgerName = 'Стандарт';
   
   btnOpenModal.addEventListener('click', () => {
     modalBlock.classList.add('d-block');
@@ -24,8 +23,8 @@ document.addEventListener('DOMContentLoaded', function(){
         <div class="answers-item d-flex flex-column">
         <input type="radio" id="answerItem1" name="answer" class="d-none">
         <label for="answerItem1" class="d-flex flex-column justify-content-between">
-          <img class="answerImg" src="${link}" alt="burger">
-          <span>${burgerName}</span>
+          <img class="answerImg" src="./image/burger.png" alt="burger">
+          <span>Стандарт</span>
         </label>
         </div>
         
@@ -35,9 +34,3 @@ document.addEventListener('DOMContentLoaded', function(){
     renderQuestions();
   }
 })
-
-
-
-
-
-
