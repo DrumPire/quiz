@@ -92,6 +92,8 @@ document.addEventListener('DOMContentLoaded', function(){
   })
 
   const playTest = () => {
+    const finalAnswers = {};
+
     let numberQuestion = 0;
     const renderAnswers = (index) => {
       questions[index].answers.forEach((answer) => {
@@ -109,8 +111,23 @@ document.addEventListener('DOMContentLoaded', function(){
     }
     const renderQuestions = (indexQuestion) => {
       formAnswers.innerHTML = '';
-      questionTitle.textContent = `${questions[indexQuestion].question}`;
-      renderAnswers(indexQuestion);
+
+      if (numberQuestion >= 0 && numberQuestion <= questions.length - 1) {
+        questionTitle.textContent = `${questions[indexQuestion].question}`;
+        renderAnswers(indexQuestion);
+
+        nextButton.classList.remove('d-none');
+        prevButton.classList.remove('d-none');
+      }
+
+      if (numberQuestion === 0) {
+        prevButton.classList.add('d-none');
+      }
+
+      if (numberQuestion === questions.length){
+        nextButton.classList.add('d-none');
+        formAnswers.textContent = 'Спасибо';
+      }
     }
     renderQuestions(numberQuestion);
 
